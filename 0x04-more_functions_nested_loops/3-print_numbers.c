@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_numbers - prints numbers between 0 to 9.
@@ -10,7 +11,7 @@ void print_numbers(void)
 
 	for (ch = 48; ch < 58; ch++)
 	{
-		_putchar(ch);
+		putchar(ch);
 	}
-	_putchar('\n');
+	putchar('\n');
 }
