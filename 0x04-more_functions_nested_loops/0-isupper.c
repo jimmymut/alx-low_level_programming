@@ -7,9 +7,9 @@
  * return: 1 if is an uppercase character, 0 in other case.
  *
  */
-void main(void)
+int main(void)
 {
-	int a, c;
+	int a;
 
 	a = 'c';
 	if (isupper(a))
