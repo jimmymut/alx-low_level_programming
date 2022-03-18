@@ -1,5 +1,6 @@
 #include "main.h"
 #include <stdio.h>
+
 /**
  * print_number - prints an integer.
  * @n: input integer.
@@ -7,7 +8,7 @@
  */
 void print_number(int n)
 {
-	int m, d, count;
+	unsigned int m, d, count;
 
 	if (n < 0)
 	{
