@@ -1,13 +1,6 @@
-#include <unistd.h>
-/**
- * main - Entry point
- *
- * Return: Always 1 (Success)
- */
-int main(void)
+#include <stdio.h>
+int main()
 {
-	char str1[] = "and that piece of art is useful\" - Dora Korpar, 2015-10-19\n";
-
-	write(2, str1, 59);
+	printf("and that piece of art is useful\" - Dora Korpar, 2015-10-19\n");
 	return (1);
 }
