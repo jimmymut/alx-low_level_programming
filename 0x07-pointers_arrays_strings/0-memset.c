@@ -4,13 +4,15 @@
  *@s: string that points to data type char.
  *@b: Is a constant byte b.
  *@n: n bytes to be filled with b.
- *Return: 0 always.
+ *Return: the pointer s.
  */
 char *_memset(char *s, char b, unsigned int n)
 {
-	while (n--)
+	unsigned int i;
+
+	for (i = 0; i < n; i++)
 	{
-		*s++ = b;
+		*(s + i) = b;
 	}
-	return (0);
+	return (s);
 }
