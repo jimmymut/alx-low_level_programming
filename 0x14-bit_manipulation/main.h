@@ -1,7 +1,7 @@
 #ifndef __MAIN_H__
 #define __MAIN_H__
 
-
+int _putchar(char c);
 int get_endianness(void);
 unsigned int flip_bits(unsigned long int n, unsigned long int m);
 int clear_bit(unsigned long int *n, unsigned int index);
