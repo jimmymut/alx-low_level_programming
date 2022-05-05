@@ -1,45 +1,50 @@
-#include "main.h"
 #include <stdlib.h>
+#include "main.h"
 
 /**
- * argstostr - Concatenates all arguments of the program into a string;
- *             arguments are separated by a new line in the string.
- * @ac: The number of arguments passed to the program.
- * @av: An array of pointers to the arguments.
- *
- * Return: If ac == 0, av == NULL, or the function fails - NULL.
- *         Otherwise - a pointer to the new string.
+ * argstostr - prints argument on new lines
+ * @ac: arguent number
+ * @av: argument elements
+ * Return: ptr
  */
+
 char *argstostr(int ac, char **av)
 {
-	char *str;
-	int arg, byte, index, size = ac;
+	/*declare pointer and variables to be used in loop*/
+	int row, col, len, comp;
+	char *ptr;
 
 	if (ac == 0 || av == NULL)
 		return (NULL);
-
-	for (arg = 0; arg < ac; arg++)
+	/*get the length of each argument string*/
+	for (row = len = 0; row < ac; row++)
 	{
-		for (byte = 0; av[arg][byte]; byte++)
-			size++;
+		/*get the length of each element in string*/
+		for (col = 0; av[row][col] != '\0'; col++)
+			len++;
+		/*this would add another space to len for \n using malloc*/
+		len++;
 	}
-
-	str = malloc(sizeof(char) * size + 1);
-
-	if (str == NULL)
+	/*we have our length next we create space based on the length*/
+	ptr = (char *)malloc((len + 1) * sizeof(char));
+	if (ptr == NULL)
 		return (NULL);
-
-	index = 0;
-
-	for (arg = 0; arg < ac; arg++)
+	/*getting arguments and elemnts*/
+	for (row = col = comp = 0; comp < len; col++, comp++)
 	{
-		for (byte = 0; av[arg][byte]; byte++)
-			str[index++] = av[arg][byte];
-
-		str[index++] = '\n';
+		/*checking each elements and placing \n at \0*/
+		if (av[row][col] == '\0')
+		{
+			ptr[comp] = '\n';
+			row++;
+			comp++;
+			col = 0;
+		}
+		if (comp < len - 1)
+			/*setting the contents of the string to the memory*/
+			ptr[comp] = av[row][col];
 	}
-
-	str[size] = '\0';
-
-	return (str);
+	/*at this point comp is < len + 1*/
+	ptr[comp] = '\0';
+	return (ptr);
 }
